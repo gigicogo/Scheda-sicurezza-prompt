@@ -1,77 +1,93 @@
-# Prepara, scambia, verifica
+# 🔐 Prepara, scambia, verifica
 
-Strumento didattico per l’esercitazione online del blocco **“Dati e sicurezza nei prompt”**, rivolto a operatori della Pubblica Amministrazione.
+> **Esercitazione interattiva (55 minuti) su dati e sicurezza nei prompt**, per il percorso formativo "L'intelligenza artificiale nella Pubblica Amministrazione".
+> Sei fasi guidate per imparare a ridurre il contesto, costruire un prompt sicuro, revisionarsi a vicenda e documentare i controlli — su un caso **interamente fittizio**.
 
-L’attività guida i gruppi nella preparazione di un contesto ridotto, nella costruzione di un prompt e nella revisione incrociata del lavoro, prima di utilizzare l’IA.
+🔗 **Demo online:** *(aggiungi qui il link a GitHub Pages dopo la pubblicazione)*
 
-## Obiettivi
+---
 
-- Riconoscere informazioni non necessarie o potenzialmente identificative.
-- Ridurre un contesto prima di inserirlo in un prompt.
-- Applicare una checklist di revisione a testo e allegati.
-- Costruire un prompt con compito, contesto, fonti e vincoli espliciti.
-- Ricevere e valutare rilievi da un altro gruppo.
-- Documentare verifiche svolte e aspetti ancora da controllare.
+## 📋 Cos'è
 
-## Esercitazione
+Un singolo file HTML, senza backend né installazioni, che accompagna i partecipanti in un esercizio completo sul principio chiave della privacy by design: **minimizzare ciò che finisce in un prompt**. I gruppi lavorano su un caso fittizio (un utente con consumi anomali, in morosità, con contenzioso aperto), riducono il contesto, costruiscono il prompt, si scambiano il lavoro per una revisione incrociata e preparano una scheda finale documentata.
 
-L’attività è pensata per una durata indicativa di **55 minuti**:
+| Fase | Tempo | Cosa succede |
+| --- | --- | --- |
+| **1 · Triage del caso** | 7′ | Per ogni informazione del caso: serve al compito? Può far riconoscere la persona? Che azione proporre (rimuovi, sostituisci, generalizza, aggrega…) |
+| **2 · Riduzione del contesto** | 10′ | Checklist di minimizzazione (8 voci obbligatorie) e scrittura del contesto ridotto |
+| **3 · Costruzione del prompt** | 10′ | Campi guidati (output, destinatario, fonti, compito, tono, limiti) e anteprima assemblata in tempo reale |
+| **4 · Revisione incrociata** | 10′ | Scambio di lavoro tra gruppi via JSON, rubrica di 8 domande, rilievi prioritari |
+| **5 · Revisione finale e audit** | 13′ | Modifiche, verifiche completate e da completare, **audit a sorpresa** con estrazione casuale di una domanda |
+| **6 · Preparazione restituzione** | 5′ | Tre decisioni di minimizzazione, due rilievi ricevuti, scheda finale generata automaticamente (stampa / PDF) |
 
-1. Triage del caso.
-2. Riduzione del contesto.
-3. Costruzione del prompt.
-4. Revisione incrociata.
-5. Revisione finale e verifica delle scelte.
-6. Preparazione della restituzione.
+## 🚀 Come si usa
 
-Il percorso utilizza un **caso fittizio** e produce una scheda di lavoro che può essere presentata nella successiva attività di peer teaching.
+1. Scarica `index.html` dal repo (o copialo da una chiavetta).
+2. Aprilo con un doppio clic in qualunque browser moderno: **funziona anche offline**.
+3. Proiettalo per la plenaria, oppure invialo ai piccoli gruppi perché lo usino sul proprio PC.
 
-## Uso
+Per lo scambio tra gruppi non serve alcun server: il gruppo autore usa **"Esporta lavoro JSON"**, il gruppo revisore lo carica con **"Importa lavoro JSON"**, compila la rubrica e lo riesporta. Il timer integrato (55 minuti, con avanzamento per fase) è un supporto organizzativo: non blocca mai i campi.
 
-Il progetto è una pagina web statica. Non richiede installazione, server applicativo o database.
+## 🔒 Privacy e protezione dei dati
 
-Per usarlo:
+L'app è progettata per l'uso in un ente pubblico, quindi:
 
-1. Apri la pagina pubblicata su GitHub Pages: https://gigicogo.github.io/Scheda-sicurezza-prompt/.
-2. Avvia l’esercitazione e procedi fase per fase.
-3. Compila i campi usando esclusivamente il caso fittizio fornito.
-4. Al termine, esporta il lavoro in JSON oppure stampalo/salvalo in PDF.
+- **Nessun dato lascia il dispositivo.** Nessuna richiesta di rete, nessun invio a server o servizi di IA: il prompt costruito non viene mai spedito a un modello.
+- **Caso interamente fittizio.** Un banner ricorda a ogni fase di non inserire dati personali reali, dati riservati o documenti dell'Ente.
+- **Niente nominativi.** Il nome del gruppo è facoltativo e il campo lo dice esplicitamente.
+- **Salvataggio solo locale** (localStorage del browser), con esportazione/importazione JSON validata campo per campo.
+- **Scheda finale consapevole:** dichiara esplicitamente che l'elaborato documenta il lavoro svolto, ma non certifica l'anonimato, l'autorizzazione dello strumento o la conformità del prompt alle procedure dell'Ente.
 
-Il progetto può essere aperto anche localmente nel browser, scaricando e aprendo il file HTML.
+## 🛠️ Struttura del repository
 
-## Dati e privacy
+```text
+├── index.html    # l'esercitazione completa (HTML + CSS + JS inline, zero dipendenze)
+├── README.md     # questo file
+└── LICENSE       # licenza (da scegliere)
+```
 
-> **Non inserire dati personali reali, dati riservati o documenti dell’Ente.**
+Non serve build, npm, né alcuno strumento: solo un browser. Funziona su desktop, tablet e smartphone, con supporto a **dark mode** automatico, area sicura (notch) e stampa.
 
-L’attività è progettata per essere svolta con il caso fittizio incluso. Il file non deve essere usato per anonimizzare documenti reali né come autorizzazione a caricare dati in strumenti di IA.
+## 🌐 Pubblicazione gratuita (GitHub Pages)
 
-Il salvataggio automatico, se presente e supportato dal browser, avviene localmente sul dispositivo. L’esportazione JSON crea un file scaricabile. La sincronizzazione o il backup automatico su Google Drive o altri servizi cloud non fanno parte del progetto.
+1. Crea il repository e carica `index.html`.
+2. Vai su **Settings → Pages**.
+3. Sotto *Build and deployment*, seleziona il branch (`main`) e la cartella (`/root`), poi **Save**.
+4. Dopo qualche minuto l'esercizio sarà online su `https://<tuo-username>.github.io/<repo>/`.
 
-Prima di condividere un file esportato, controlla che non contenga informazioni inserite per errore.
+Netlify (free) è un'alternativa valida: trascina il file e ottieni un link immediato.
 
-## Limiti
+## 📐 Come è costruita l'esercitazione
 
-Questo strumento:
+L'app segue i contenuti del percorso sull'IA nella PA:
 
-- non invia i dati a un modello di IA;
-- non certifica che un testo sia anonimo;
-- non verifica se un servizio o uno specifico uso siano autorizzati dall’Ente;
-- non sostituisce le procedure interne, la revisione umana o il parere dei referenti competenti;
-- non costituisce un sistema ufficiale di gestione o conservazione documentale.
+- **minimizzazione dei dati**: meno dati nel prompt, meno rischio (il filo conduttore di tutte le fasi);
+- il messaggio chiave della giornata sulla privacy: **la pseudonimizzazione non è anonimizzazione** — un segnaposto come `[UTENTE_A]` non rende il caso anonimo se restano combinazioni identificative;
+- la costruzione del prompt con **istruzioni di salvaguardia** (bozza, solo fonti fornite, niente invenzioni, revisione umana);
+- la **revisione tra pari** e la **tracciabilità** come buone pratiche, prima che come obblighi.
 
-I risultati dell’esercitazione sono materiali didattici e devono essere valutati secondo le istruzioni e le procedure dell’Ente.
+## ✏️ Personalizzazione
 
-## Tecnologie
+Tutto il contenuto è in chiaro dentro `index.html`:
 
-- HTML
-- CSS
-- JavaScript
-- Archiviazione locale del browser, se supportata
-- Esportazione e importazione di file JSON
-- Funzione di stampa del browser
+- **il caso fittizio e la finalità**: costanti `CASO`, `FIN` ed elenco `EL` (le informazioni da sottoporre a triage);
+- **checklist e rubrica**: costanti `CHK` e `RUB`;
+- **domande dell'audit**: costante `AUD` (l'estrazione evita automaticamente la ripetizione della stessa domanda);
+- **tempi delle fasi**: costante `PH` (i minuti per fase; il totale si ricalcola automaticamente).
 
-L’applicazione è pensata per funzionare senza framework, librerie o servizi esterni.
+Se adatti l'esercizio al tuo ente, mantieni la regola d'ingaggio: solo casi fittizi, mai dati reali.
 
-## Licenza e riutilizzo
+## 📄 Licenza
 
-Il materiale è ricusabile e modificabile da chiunque.
+Da definire: si suggerisce una licenza aperta (es. MIT o CC BY 4.0) per favorire il riuso da parte di altri enti. Sostituisci questo paragrafo con il testo della licenza scelta e il file `LICENSE` del repo.
+
+## 👤 Autore e contesto
+
+**Gianluigi Cogo** — consulente e docente sui temi dell'IA generativa nella Pubblica Amministrazione.
+
+L'app nasce come esercitazione del percorso operativo *"L'IA nella Pubblica Amministrazione — Percorso operativo per l'uso consapevole, sicuro e governato dell'IA generativa"* (20 ore: percorso base per funzionari ed esecutori + modulo governance per direttori e dirigenti), in particolare per le giornate su sicurezza/privacy e buone pratiche.
+
+- 📮 Newsletter: [gigicogo.substack.com](https://gigicogo.substack.com)
+- 📝 Blog: [medium.com/webeconoscenza](https://medium.com/webeconoscenza)
+- ▶️ YouTube: [youtube.com/@gigicogo](https://www.youtube.com/@gigicogo)
+- 💼 LinkedIn: [linkedin.com/in/gigicogo](https://it.linkedin.com/in/gigicogo)
