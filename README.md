@@ -43,7 +43,6 @@ L'app è progettata per l'uso in un ente pubblico, quindi:
 ```text
 ├── index.html    # l'esercitazione completa (HTML + CSS + JS inline, zero dipendenze)
 ├── README.md     # questo file
-└── LICENSE       # licenza (da scegliere)
 ```
 
 Non serve build, npm, né alcuno strumento: solo un browser. Funziona su desktop, tablet e smartphone, con supporto a **dark mode** automatico, area sicura (notch) e stampa.
@@ -79,7 +78,7 @@ Se adatti l'esercizio al tuo ente, mantieni la regola d'ingaggio: solo casi fitt
 
 ## 📄 Licenza
 
-Da definire: si suggerisce una licenza aperta (es. MIT o CC BY 4.0) per favorire il riuso da parte di altri enti. Sostituisci questo paragrafo con il testo della licenza scelta e il file `LICENSE` del repo.
+Aperta. E' possibile usare il file, cambiarlo, ottimizzarlo, correggerlo e usarlo in piena libertà senza obbligo di citare l'autore.
 
 ## 👤 Autore e contesto
 
