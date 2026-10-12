@@ -32,7 +32,7 @@ Il progetto è una pagina web statica. Non richiede installazione, server applic
 
 Per usarlo:
 
-1. Apri la pagina pubblicata su GitHub Pages.
+1. Apri la pagina pubblicata su GitHub Pages: https://gigicogo.github.io/Scheda-sicurezza-prompt/.
 2. Avvia l’esercitazione e procedi fase per fase.
 3. Compila i campi usando esclusivamente il caso fittizio fornito.
 4. Al termine, esporta il lavoro in JSON oppure stampalo/salvalo in PDF.
@@ -74,4 +74,4 @@ L’applicazione è pensata per funzionare senza framework, librerie o servizi e
 
 ## Licenza e riutilizzo
 
-Aggiungi qui la licenza scelta per il repository, ad esempio MIT, oppure specifica che il materiale è riservato all’uso formativo interno dell’Ente.
+Il materiale è ricusabile e modificabile da chiunque.
