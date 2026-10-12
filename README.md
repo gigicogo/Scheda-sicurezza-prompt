@@ -49,17 +49,6 @@ Il salvataggio automatico, se presente e supportato dal browser, avviene localme
 
 Prima di condividere un file esportato, controlla che non contenga informazioni inserite per errore.
 
-## Pubblicazione su GitHub Pages
-
-Per pubblicare il progetto:
-
-1. Carica il file HTML e il README nella radice del repository.
-2. Apri **Settings → Pages**.
-3. Seleziona il branch e la cartella da pubblicare.
-4. Salva e attendi la pubblicazione del sito.
-
-Se la pagina iniziale del sito deve aprire direttamente l’esercitazione, assegna al file HTML il nome `index.html`.
-
 ## Limiti
 
 Questo strumento:
