@@ -1,1 +1,201 @@
-1
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prepara, scambia, verifica</title>
+<style>
+:root{--bg:#f5f3ec;--card:#fff;--ink:#17202f;--mut:#475266;--navy:#14284b;--pri:#14284b;--hd:#14284b;--line:#c9d0dc;--oc:#8a5a00;--ocbg:#fff1cc;--gr:#1f6a3e;--grbg:#e1f2e7;--fld:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e1626;--card:#17233b;--ink:#e9eef7;--mut:#b3bfd3;--navy:#a9c3f5;--pri:#2f55a4;--hd:#0a1222;--line:#3a4c72;--oc:#f0b955;--ocbg:#3a2f12;--gr:#7fd0a0;--grbg:#143323;--fld:#0f1a2e}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e1626;--card:#17233b;--ink:#e9eef7;--mut:#b3bfd3;--navy:#a9c3f5;--pri:#2f55a4;--hd:#0a1222;--line:#3a4c72;--oc:#f0b955;--ocbg:#3a2f12;--gr:#7fd0a0;--grbg:#143323;--fld:#0f1a2e}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:0 1rem 3rem}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.hd{background:var(--hd);color:#fff;padding:.6rem 1rem;font-weight:700;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.warn{background:var(--ocbg);color:var(--ink);border-left:6px solid var(--oc);padding:.55rem 1rem;font-weight:700;font-size:.92rem}
+.warn2{background:var(--ocbg);border-left:6px solid var(--oc);padding:.7rem 1rem;border-radius:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.4rem;margin:1rem 0}
+h1{font-size:2rem;margin:.2rem 0;color:var(--navy)}h2{margin:.2rem 0 .6rem;color:var(--navy)}h3{color:var(--navy);margin:1.4rem 0 .4rem}
+h2 small{font-weight:400;color:var(--oc);font-size:.65em;margin-left:.4rem}
+.sub{font-size:1.2rem;color:var(--mut);margin:0 0 .8rem}
+blockquote{margin:1rem 0;padding:.8rem 1rem;border-left:6px solid var(--gr);background:var(--grbg);font-size:1.1rem}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.fl{margin:.6rem 0}label{display:block;font-weight:600;margin:.2rem 0}
+input[type=text],select,textarea{width:100%;font:inherit;padding:.6rem;border:2px solid var(--line);border-radius:8px;background:var(--fld);color:var(--ink)}
+textarea{resize:vertical}
+.req{color:var(--oc);font-weight:700;font-size:.82em}
+button{font:inherit;font-weight:600;padding:.6rem 1rem;border-radius:8px;border:2px solid var(--navy);background:transparent;color:var(--navy);cursor:pointer}
+button.pri{background:var(--pri);color:#fff;border-color:var(--pri)}
+button:hover{filter:brightness(1.1)}
+:focus-visible{outline:3px solid var(--oc);outline-offset:2px}
+.acts,.nav,.bar{display:flex;gap:.6rem;flex-wrap:wrap;margin:.8rem 0}.nav{justify-content:space-between;margin-top:1.6rem}
+.trow{border:2px solid var(--line);border-radius:10px;margin:.9rem 0;padding:.6rem 1rem 1rem}.trow legend{font-weight:700;padding:0 .4rem}
+.rad{display:flex;gap:1.2rem;flex-wrap:wrap}.rl,.chk{display:flex;gap:.6rem;align-items:flex-start;font-weight:400}
+.rl input,.chk input{width:1.3rem;height:1.3rem;margin-top:.2rem;flex:none}
+.chk{padding:.4rem 0}
+.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.5rem;padding:0;list-style:none;margin:1rem 0}
+.st button{width:100%;text-align:left;font-size:.85rem;font-weight:400;background:var(--card)}
+.st button.cur{border-width:3px;background:var(--grbg);color:var(--ink)}
+.tim{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.8rem 1rem;margin-top:1rem}
+.tm{font-size:2rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--navy)}
+.pbar{height:12px;background:var(--line);border-radius:6px;overflow:hidden;margin:.4rem 0}.pbar div{height:100%;width:0;background:var(--gr)}
+.svd{font-size:.9rem;color:var(--mut);margin:.2rem 0}
+.pre{white-space:pre-wrap;border:1px solid var(--line);border-radius:8px;padding:.6rem .8rem;background:var(--fld)}
+.audq{font-size:1.2rem;font-weight:700;border-left:6px solid var(--oc);padding-left:.8rem}
+.note{color:var(--mut)}
+details{margin:.8rem 0}summary{cursor:pointer;font-weight:600;color:var(--navy)}
+#scheda{display:none}body.ph6 #scheda{display:block}
+#pn{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:20}#pn[hidden]{display:none}
+.pbox{background:var(--card);max-width:720px;width:100%;max-height:92%;overflow:auto;border-radius:14px;padding:1.4rem;border:1px solid var(--line)}
+.toast{position:fixed;left:50%;bottom:calc(1rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--hd);color:#fff;padding:.6rem 1rem;border-radius:8px;z-index:30;max-width:90%}.toast:empty{display:none}
+@media print{.noprint,#pn,.toast{display:none!important}#scheda{display:block!important;border:0}body{background:#fff;color:#000}.pre{border:1px solid #888;background:#fff;color:#000}h2,h3{color:#000}}
+</style></head><body>
+<div class="wrap">
+<div id="app" class="noprint">
+<div class="top"><div class="hd"><span>Prepara, scambia, verifica</span><span>⏱ 55 minuti</span></div>
+<div class="warn" role="note">ESERCITAZIONE: usare solo il caso fittizio fornito. Non inserire dati personali reali, dati riservati o documenti dell’Ente.</div></div>
+<div id="nost" class="warn2" role="alert" hidden>Il salvataggio automatico locale non è disponibile in questo browser: usate “Esporta lavoro JSON” e “Stampa / salva PDF” per conservare il lavoro.</div>
+<div class="bar" role="toolbar" aria-label="Gestione del lavoro">
+<button data-act="exp">Esporta lavoro JSON</button><button data-act="imp">Importa lavoro JSON</button><button data-act="prt">Stampa / salva PDF</button><button data-act="clr">Cancella sessione</button></div>
+<p id="sv" class="svd" aria-live="polite"></p>
+<div class="tim" role="group" aria-label="Timer">
+<div><span class="tm" id="tm">55:00</span> <span id="tmst" class="note"></span></div>
+<div id="tt" aria-live="off"></div>
+<div class="pbar" id="tb" role="progressbar" aria-label="Avanzamento della fase corrente" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="tf"></div></div>
+<div class="acts"><button class="pri" data-act="tstart">Avvia / riprendi</button><button data-act="tpause">Pausa</button><button data-act="treset">Azzera timer</button></div>
+<p class="note" style="margin:0;font-size:.9rem">Il timer è un supporto organizzativo: non blocca i campi.</p></div>
+<ol class="st" id="st" aria-label="Fasi dell’esercitazione"></ol>
+<main id="mn"></main>
+</div>
+<section id="scheda" class="card"></section>
+</div>
+<div id="pn" class="noprint" hidden></div>
+<div id="live" class="toast" role="status"></div>
+<script>
+// Tutti i dati restano nel browser: nessuna richiesta di rete, nessun invio a server o servizi di IA.
+(()=>{
+const APP="prepara-scambia-verifica",KEY="psv_sessione_v1";
+const PH=[["Triage del caso",7],["Riduzione del contesto",10],["Costruzione del prompt",10],["Revisione incrociata",10],["Revisione finale e audit",13],["Preparazione restituzione",5]];
+const TOT=3300;
+const CASO="“[UTENTE_A], residente nella frazione [X], ha consumi quattro volte la media dal gennaio 2026. È in morosità e ha un contenzioso aperto con il gestore [Y].”";
+const FIN="Preparare una bozza di risposta tecnica che indichi quali verifiche il gestore dovrebbe effettuare rispetto all’anomalia segnalata.";
+const EL=["[UTENTE_A]","frazione [X]","consumi quattro volte la media","dal gennaio 2026","morosità","contenzioso aperto","gestore [Y]"];
+const SN=["Sì","No","Non so"],AZ=["Lascia","Rimuovi","Sostituisci","Generalizza","Aggrega","Chiedi supporto"],ESI=["Nessun rilievo","Rilievo","Da chiarire"];
+const CHK=["Ho mantenuto solo le informazioni necessarie alla finalità.","Ho rimosso nomi e codici non necessari.","Ho valutato luogo, date, importi e dettagli rari.","Ho considerato le combinazioni di informazioni che potrebbero identificare una persona.","Ho escluso informazioni economiche o personali non pertinenti.","Ho controllato eventuali riferimenti a pratiche, uffici, gestori o eventi riconoscibili.","Sto usando solo il caso fittizio fornito.","Ho riletto il testo ridotto prima di procedere."];
+const RUB=["Il contesto contiene dettagli non necessari?","Restano luoghi, date o eventi che, combinati, potrebbero rendere riconoscibile il caso?","Il segnaposto è usato coerentemente?","Il compito è comprensibile e circoscritto?","È chiaro quali fonti sono disponibili?","Il prompt impedisce di inventare informazioni non fornite?","La bozza è chiaramente soggetta a revisione umana?","Sono presenti istruzioni ambigue o contraddittorie?"];
+const AUD=["Quali informazioni sono state rimosse e perché?","Quali dettagli potrebbero ancora rendere il caso riconoscibile?","Quali fonti sono state usate?","Quali aspetti richiedono ancora verifica umana?","Come si capisce che il testo prodotto è una bozza?","Che cosa non si può dedurre dal prompt o dal caso?"];
+const DISC="Questo elaborato documenta il lavoro svolto nell’esercitazione. Non certifica che il caso sia anonimo, che lo strumento sia autorizzato o che il prompt sia conforme alle procedure dell’Ente.";
+const $=s=>document.querySelector(s);
+const esc=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const def=()=>({phase:0,gruppo:"",triage:EL.map(e=>({el:e,serve:"",ident:"",az:"",mot:""})),chk:CHK.map(()=>false),
+ctx:"[UTENTE_A] segnala consumi significativamente superiori alla media nel periodo [PERIODO].",
+p:{out:"Bozza di risposta tecnica",dest:"Utente segnalante",ctx:null,fonti:"Nessuna fonte allegata",comp:"Indica quali verifiche il gestore dovrebbe effettuare rispetto all’anomalia segnalata",tono:"Istituzionale, chiaro e rispettoso",lim:"Non aggiungere fatti, numeri, norme o procedure non presenti. Segnala ciò che richiede verifica."},
+man:null,rub:RUB.map(()=>({e:"",o:""})),prio:"",f:{mod:"",nonacc:"",ver:"",da:""},rev:null,aq:-1,aa:"",dec:["","",""],ril:["",""],el:0});
+let S=def(),stOK=true,savedAt=null,run=false,last=0,iv=null,tc=0,pend=null;
+const gp=(o,p)=>p.split('.').reduce((a,k)=>a[k],o);
+const sp=(o,p,v)=>{const k=p.split('.'),l=k.pop();k.reduce((a,x)=>a[x],o)[l]=v};
+const pad=n=>String(n).padStart(2,'0'),mmss=s=>pad(Math.floor(s/60))+':'+pad(Math.floor(s%60));
+const msg=t=>{const l=$('#live');l.textContent=t;clearTimeout(msg.t);msg.t=setTimeout(()=>l.textContent='',4500)};
+/* Esportazione / validazione */
+const toExp=()=>{const {el,...r}=S;return{app:APP,versione:1,esportatoIl:new Date().toISOString(),...r}};
+function fromExp(o){
+ const T=(v,n)=>{if(typeof v!=='string')throw new Error('Campo mancante o non valido: '+n);return v.slice(0,6000)};
+ const TN=(v,n)=>v===null?null:T(v,n);
+ const OB=(v,n)=>{if(!v||typeof v!=='object'||Array.isArray(v))throw new Error('Sezione non valida: '+n);return v};
+ const AR=(v,l,n)=>{if(!Array.isArray(v)||v.length!==l)throw new Error('Elenco non valido: '+n);return v};
+ const IN=(v,a,n)=>{if(!a.includes(v))throw new Error('Valore non ammesso in: '+n);return v};
+ if(!o||typeof o!=='object'||Array.isArray(o)||o.app!==APP)throw new Error('Il file non è un lavoro esportato da questa esercitazione.');
+ if(o.versione!==1)throw new Error('Versione del file non supportata.');
+ const d=def();
+ d.phase=IN(o.phase,[0,1,2,3,4,5,6],'fase');
+ d.gruppo=T(o.gruppo,'gruppo').slice(0,120);
+ d.triage=AR(o.triage,7,'triage').map((r,i)=>{OB(r,'triage');return{el:EL[i],serve:IN(r.serve,['',...SN],'triage'),ident:IN(r.ident,['',...SN],'triage'),az:IN(r.az,['',...AZ],'triage'),mot:T(r.mot,'motivazione')}});
+ d.chk=AR(o.chk,8,'checklist').map(b=>{if(typeof b!=='boolean')throw new Error('Checklist non valida.');return b});
+ d.ctx=T(o.ctx,'contesto ridotto');
+ const p=OB(o.p,'prompt');
+ d.p={out:T(p.out,'tipo di output'),dest:T(p.dest,'destinatario'),ctx:TN(p.ctx,'contesto nel prompt'),fonti:T(p.fonti,'fonti'),comp:T(p.comp,'compito'),tono:T(p.tono,'tono'),lim:T(p.lim,'limiti e marcature')};
+ d.man=TN(o.man,'prompt modificato');
+ d.rub=AR(o.rub,8,'rubrica').map(r=>{OB(r,'rubrica');return{e:IN(r.e,['',...ESI],'rubrica'),o:T(r.o,'osservazione')}});
+ d.prio=T(o.prio,'rilievi prioritari');
+ const f=OB(o.f,'revisione finale');d.f={mod:T(f.mod,'modifiche'),nonacc:T(f.nonacc,'rilievi non accolti'),ver:T(f.ver,'verifiche'),da:T(f.da,'questioni aperte')};
+ d.rev=TN(o.rev,'prompt revisionato');
+ d.aq=IN(o.aq,[-1,0,1,2,3,4,5],'audit');
+ d.aa=T(o.aa,'risposta audit');
+ d.dec=AR(o.dec,3,'decisioni').map(x=>T(x,'decisione'));
+ d.ril=AR(o.ril,2,'rilievi ricevuti').map(x=>T(x,'rilievo'));
+ return d}
+/* Salvataggio locale */
+try{localStorage.setItem('_t','1');localStorage.removeItem('_t')}catch(e){stOK=false}
+function load(){if(!stOK)return;try{const r=localStorage.getItem(KEY);if(r){const o=JSON.parse(r);S=fromExp(o);S.el=Math.max(0,Math.min(TOT*1000,+o._el||0))}}catch(e){S=def()}}
+function save(){if(!stOK)return;try{localStorage.setItem(KEY,JSON.stringify({...toExp(),_el:S.el}));savedAt=new Date()}catch(e){stOK=false;$('#nost').hidden=false}updSave()}
+let sT;const sv=()=>{clearTimeout(sT);sT=setTimeout(save,300)};
+function updSave(){$('#sv').textContent=!stOK?'Salvataggio automatico locale non disponibile.':(savedAt?'✔ Salvato automaticamente alle '+savedAt.toLocaleTimeString('it-IT')+' — solo in questo browser e su questo dispositivo.':'Salvataggio automatico locale attivo — solo in questo browser e su questo dispositivo.')}
+/* Prompt */
+function assemble(s){const p=s.p;return `Tipo di output: ${p.out}\nDestinatario: ${p.dest}\nContesto: ${p.ctx==null?s.ctx:p.ctx}\nFonti disponibili: ${p.fonti}\nCompito: ${p.comp}\nTono: ${p.tono}\nLimiti e marcature: ${p.lim}\n\nIstruzioni generali:\n- Produci una BOZZA da sottoporre a revisione umana.\n- Usa solo le informazioni e le fonti fornite.\n- Se un'informazione necessaria manca, dichiaralo chiaramente.\n- Non assumere decisioni né formulare conclusioni definitive.`}
+const promptText=s=>s.man==null?assemble(s):s.man;
+/* Completezza fasi (solo indicatore, non blocca) */
+const t_=x=>String(x).trim();
+const DONE=[s=>s.triage.every(r=>r.serve&&r.ident&&r.az&&t_(r.mot)),s=>s.chk.every(Boolean)&&!!t_(s.ctx),s=>[s.p.out,s.p.dest,s.p.fonti,s.p.comp,s.p.tono,s.p.lim,s.p.ctx==null?s.ctx:s.p.ctx].every(x=>t_(x)),s=>s.rub.every(r=>r.e)&&!!t_(s.prio),s=>!!(t_(s.f.mod)&&t_(s.f.ver)&&t_(s.f.da)&&s.aq>=0&&t_(s.aa)),s=>s.dec.every(x=>t_(x))&&s.ril.every(x=>t_(x))];
+/* Componenti */
+const idf=k=>'f_'+k.replace(/\./g,'_');
+const F=(l,k,v,o={})=>`<div class="fl"><label for="${idf(k)}">${l}${o.req?' <span class="req">(obbligatorio)</span>':''}</label>${o.ta?`<textarea id="${idf(k)}" data-k="${k}" rows="${o.rows||3}">${esc(v)}</textarea>`:`<input type="text" id="${idf(k)}" data-k="${k}" value="${esc(v)}" autocomplete="off">`}</div>`;
+const sel=(k,l,a,v)=>`<div class="fl"><label for="${idf(k)}">${l} <span class="req">(obbligatorio)</span></label><select id="${idf(k)}" data-k="${k}"><option value="">Seleziona…</option>${a.map(o=>`<option${o===v?' selected':''}>${o}</option>`).join('')}</select></div>`;
+const nv=p=>`<div class="nav"><button data-go="${p-1}">← Indietro</button>${p<6?`<button class="pri" data-go="${p+1}">Avanti →</button>`:'<span></span>'}</div>`;
+const V=[
+()=>`<section class="card"><h1>Prepara, scambia, verifica</h1><p class="sub">Esercitazione online — Dati e sicurezza nei prompt</p><p>⏱ Durata: <strong>55 minuti</strong></p><div class="warn2"><strong>ESERCITAZIONE: usare solo il caso fittizio fornito. Non inserire dati personali reali, dati riservati o documenti dell’Ente.</strong></div><p>Al termine avrete: <strong>un contesto ridotto</strong>, <strong>un prompt revisionato</strong> e <strong>una traccia dei controlli</strong> effettuati.</p><details><summary>Come funziona</summary><p>Sei fasi guidate, una per schermata. Il salvataggio è automatico ma solo locale: per scambiare il lavoro con un altro gruppo usate esporta / importa JSON. Nulla viene inviato a server o a servizi di IA.</p></details><div class="nav"><span></span><button class="pri" data-go="1">Avvia esercitazione</button></div></section>`,
+()=>`<section class="card"><h2>Fase 1 — Triage del caso <small>7 minuti</small></h2><p>Per ogni elemento: serve? può far riconoscere la persona? quale azione?</p><blockquote>${CASO}</blockquote><p><strong>Finalità del compito:</strong> “${FIN}”</p>${S.triage.map((r,i)=>`<fieldset class="trow"><legend>${esc(r.el)}</legend><div class="g">${sel(`triage.${i}.serve`,'Serve al compito?',SN,r.serve)}${sel(`triage.${i}.ident`,'Può contribuire a riconoscere la persona?',SN,r.ident)}${sel(`triage.${i}.az`,'Azione proposta',AZ,r.az)}</div>${F('Motivazione',`triage.${i}.mot`,r.mot,{ta:1,rows:2,req:1})}</fieldset>`).join('')}<p class="note">Il risultato del triage non è una certificazione di anonimato.</p>${nv(1)}</section>`,
+()=>`<section class="card"><h2>Fase 2 — Riduzione del contesto <small>10 minuti</small></h2><fieldset class="trow"><legend>Checklist <span class="req">(obbligatoria: tutte le voci)</span></legend>${CHK.map((c,i)=>`<label class="chk"><input type="checkbox" data-k="chk.${i}"${S.chk[i]?' checked':''}><span>${c}</span></label>`).join('')}</fieldset>${F('Contesto ridotto','ctx',S.ctx,{ta:1,rows:4,req:1})}<p class="warn2" role="note"><strong>Il segnaposto non rende automaticamente anonimo il caso. Il contesto deve comunque essere valutato e ridotto.</strong></p>${nv(2)}</section>`,
+()=>{const p=S.p;return `<section class="card"><h2>Fase 3 — Costruzione del prompt <small>10 minuti</small></h2><p>Compilate i campi: l’anteprima si compone da sola. Il prompt non viene inviato a nessun modello.</p><div class="g">${F('Tipo di output','p.out',p.out,{req:1})}${F('Destinatario','p.dest',p.dest,{req:1})}${F('Fonti disponibili nel caso fittizio','p.fonti',p.fonti,{req:1})}${F('Tono','p.tono',p.tono,{req:1})}</div>${F('Contesto ridotto','p.ctx',p.ctx==null?S.ctx:p.ctx,{ta:1,req:1})}${F('Compito','p.comp',p.comp,{ta:1,req:1})}${F('Limiti e marcature','p.lim',p.lim,{ta:1,req:1})}<h3>Anteprima del prompt</h3><label for="pv">Prompt assemblato (modificabile)</label><textarea id="pv" data-k="man" rows="14">${esc(promptText(S))}</textarea><div class="acts"><button data-act="cp">Copia prompt</button><button data-act="regen">Rigenera dai campi</button></div><details><summary>Nota sulla modifica manuale</summary><p>Se modificate a mano l’anteprima, i campi sopra non la aggiornano più finché non premete “Rigenera dai campi”.</p></details>${nv(3)}</section>`},
+()=>`<section class="card"><h2>Fase 4 — Revisione incrociata <small>10 minuti</small></h2><p>Per il gruppo revisore: valutate il lavoro dell’altro gruppo. Nessun punteggio, nessuna classifica.</p><details><summary>Come scambiare il lavoro</summary><p>Il gruppo autore usa “Esporta lavoro JSON”; il gruppo revisore lo carica con “Importa lavoro JSON”, compila la rubrica ed esporta di nuovo; l’autore reimporta il file.</p></details><h3>Lavoro in revisione</h3><p><strong>Contesto ridotto</strong></p><div class="pre">${esc(S.p.ctx==null?S.ctx:S.p.ctx)}</div><p><strong>Prompt</strong></p><div class="pre">${esc(promptText(S))}</div><h3>Rubrica</h3>${RUB.map((q,i)=>`<fieldset class="trow"><legend>${i+1}. ${q} <span class="req">(obbligatorio)</span></legend><div class="rad">${ESI.map(o=>`<label class="rl"><input type="radio" name="rub${i}" data-k="rub.${i}.e" value="${o}"${S.rub[i].e===o?' checked':''}>${o}</label>`).join('')}</div>${F('Osservazione / modifica proposta',`rub.${i}.o`,S.rub[i].o)}</fieldset>`).join('')}${F('Rilievi prioritari del gruppo revisore','prio',S.prio,{ta:1,req:1})}${nv(4)}</section>`,
+()=>`<section class="card"><h2>Fase 5 — Revisione finale e audit <small>13 minuti</small></h2>${F('Modifiche apportate dopo la revisione','f.mod',S.f.mod,{ta:1,req:1})}${F('Rilievi non accolti e motivazione','f.nonacc',S.f.nonacc,{ta:1})}${F('Verifiche completate','f.ver',S.f.ver,{ta:1,req:1})}${F('Questioni ancora da verificare da parte di una persona competente','f.da',S.f.da,{ta:1,req:1})}${F('Prompt revisionato (parte dal prompt attuale: modificatelo)','rev',S.rev==null?promptText(S):S.rev,{ta:1,rows:10})}<div class="trow"><h3 style="margin-top:.2rem">Audit a sorpresa</h3>${S.aq>=0?`<p class="audq">${AUD[S.aq]}</p>`:'<p>Estraete una domanda: il sorteggio avviene solo in questa pagina.</p>'}<button data-act="draw">${S.aq>=0?'Estrai un’altra domanda':'Estrai domanda'}</button>${F('Risposta all’audit','aa',S.aa,{ta:1,req:1})}</div>${nv(5)}</section>`,
+()=>`<section class="card"><h2>Fase 6 — Preparazione restituzione <small>5 minuti</small></h2><p>Completate i campi: la scheda finale qui sotto si genera da sola.</p>${F('Nome del gruppo (facoltativo — non inserire nominativi di persone)','gruppo',S.gruppo)}<h3>Tre decisioni di minimizzazione più rilevanti</h3>${S.dec.map((d,i)=>F('Decisione '+(i+1),'dec.'+i,d,{req:1})).join('')}<h3>Due rilievi ricevuti dalla revisione incrociata</h3>${S.ril.map((d,i)=>F('Rilievo '+(i+1),'ril.'+i,d,{req:1})).join('')}<div class="acts"><button data-act="fillril">Precompila i rilievi dalla rubrica</button><button class="pri" data-act="exp">Esporta lavoro JSON</button><button data-act="prt">Stampa / salva PDF</button></div>${nv(6)}</section>`];
+function fillSch(){const s=S,x=t=>`<div class="pre">${esc(t_(t)||'—')}</div>`;
+$('#scheda').innerHTML=`<h2>Scheda finale — Prepara, scambia, verifica</h2><p><strong>ESERCITAZIONE: usare solo il caso fittizio fornito. Non inserire dati personali reali, dati riservati o documenti dell’Ente.</strong></p><p>Gruppo: ${esc(t_(s.gruppo)||'non indicato')} · ${new Date().toLocaleString('it-IT')}</p><h3>Contesto ridotto</h3>${x(s.p.ctx==null?s.ctx:s.p.ctx)}<h3>Prompt revisionato</h3>${x(s.rev==null?promptText(s):s.rev)}<h3>Tre decisioni di minimizzazione più rilevanti</h3><ol>${s.dec.map(d=>`<li>${esc(t_(d)||'—')}</li>`).join('')}</ol><h3>Due rilievi ricevuti dalla revisione incrociata</h3><ol>${s.ril.map(d=>`<li>${esc(t_(d)||'—')}</li>`).join('')}</ol><h3>Verifiche completate</h3>${x(s.f.ver)}<h3>Questioni che restano da controllare</h3>${x(s.f.da)}<h3>Audit a sorpresa</h3><p><em>${s.aq>=0?AUD[s.aq]:'Domanda non estratta'}</em></p>${x(s.aa)}<p><em>${DISC}</em></p>`}
+function renderSt(){$('#st').innerHTML=PH.map((p,i)=>{const n=i+1,d=DONE[i](S),c=S.phase===n;return `<li><button data-go="${n}"${c?' aria-current="step"':''} class="${c?'cur':''}"><strong>${n}. ${p[0]}</strong><br>${p[1]} min · ${d?'✔ completa':'○ da completare'}</button></li>`}).join('')}
+function render(){document.body.classList.toggle('ph6',S.phase===6);$('#mn').innerHTML=V[S.phase]();renderSt();updT();updSave();if(S.phase===6)fillSch()}
+function go(n){S.phase=n;save();render();window.scrollTo(0,0)}
+/* Timer */
+function updT(){const t=Math.min(TOT,S.el/1000),fin=t>=TOT;let c=0,i=0;for(;i<6;i++){if(t<c+PH[i][1]*60)break;c+=PH[i][1]*60}if(i>5)i=5;const d=PH[i][1]*60,pr=fin?1:(t-c)/d;
+$('#tm').textContent=mmss(TOT-t);$('#tf').style.width=(pr*100)+'%';$('#tb').setAttribute('aria-valuenow',Math.round(pr*100));
+$('#tt').textContent=fin?'Tempo totale terminato — potete comunque continuare a compilare.':`Fase del timer: ${i+1}. ${PH[i][0]} — restano ${mmss(d-(t-c))}`;
+$('#tmst').textContent=run?'· in corso':(t>0?'· in pausa':'· non avviato')}
+function tick(){if(run){const n=Date.now();S.el=Math.min(TOT*1000,S.el+n-last);last=n;if(S.el>=TOT*1000){run=false;save()}else if(++tc%20===0)save()}updT()}
+function tstart(){if(S.el>=TOT*1000||run)return;run=true;last=Date.now();if(!iv)iv=setInterval(tick,500);tick()}
+function tpause(){tick();run=false;save();updT()}
+/* Pannelli */
+function openP(h){const p=$('#pn');p.innerHTML=`<div class="pbox" role="dialog" aria-modal="true" tabindex="-1">${h}</div>`;p.hidden=false;p.firstChild.focus()}
+function closeP(){$('#pn').hidden=true;pend=null}
+function ask(t,d,fn){pend=fn;openP(`<h2>${t}</h2><p>${d}</p><div class="acts"><button class="pri" data-act="yes">Sì, procedi</button><button data-act="close">Annulla</button></div>`)}
+function pExp(){openP(`<h2>Esporta lavoro JSON</h2><p>Il file include soltanto: nome gruppo (facoltativo), triage, checklist, contesto ridotto, campi e testo del prompt, rubrica e rilievi, modifiche e verifiche, domanda e risposta dell’audit, decisioni di minimizzazione, fase raggiunta, data e ora. Nessun dato di analytics o identificativo.</p><p class="warn2"><strong>Ricordate: non scrivere dati reali, riservati o documenti dell’Ente.</strong></p><div class="acts"><button class="pri" data-act="dl">Scarica file JSON</button><button data-act="copyj">Copia JSON</button><button data-act="close">Chiudi</button></div><label for="jx">Contenuto (se il download non parte, copiatelo da qui)</label><textarea id="jx" readonly rows="8">${esc(JSON.stringify(toExp(),null,2))}</textarea>`)}
+function pImp(){openP(`<h2>Importa lavoro JSON</h2><p class="warn2">L’importazione sostituisce il lavoro corrente. Consigliato esportarlo prima.</p><label for="fi">File JSON esportato in precedenza</label><input type="file" id="fi" accept=".json,application/json"><label for="ji">Oppure incollate qui il contenuto</label><textarea id="ji" rows="8"></textarea><p id="imsg" role="alert" style="color:var(--oc);font-weight:700"></p><div class="acts"><button class="pri" data-act="doimp">Importa e sostituisci</button><button data-act="close">Chiudi</button></div>`)}
+function doImp(){const m=$('#imsg');let o;try{o=JSON.parse($('#ji').value)}catch(e){m.textContent='Il contenuto non è un JSON valido: controllate di aver copiato tutto il file.';return}
+try{const d=fromExp(o);run=false;S=d;S.el=0;save();closeP();render();msg('Lavoro importato correttamente.')}catch(e){m.textContent='Importazione non riuscita. '+e.message}}
+function cp(el,txt){el.focus();el.select();(navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>msg('Copiato negli appunti.'),()=>{let ok=false;try{ok=document.execCommand('copy')}catch(e){}msg(ok?'Copiato negli appunti.':'Testo selezionato: premete Ctrl+C per copiarlo.')})}
+function dl(){try{const b=new Blob([JSON.stringify(toExp(),null,2)],{type:'application/json'}),a=document.createElement('a'),n=new Date();a.href=URL.createObjectURL(b);a.download=`prepara-scambia-verifica-${n.getFullYear()}${pad(n.getMonth()+1)}${pad(n.getDate())}-${pad(n.getHours())}${pad(n.getMinutes())}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);msg('Download avviato. Se non parte, usate “Copia JSON”.')}catch(e){msg('Download non disponibile: usate “Copia JSON”.')}}
+function prt(){fillSch();try{window.print()}catch(e){msg('Stampa non disponibile qui: esportate il JSON.')}}
+/* Eventi */
+function onIn(e){const t=e.target,k=t.dataset&&t.dataset.k;if(!k)return;if(t.type==='radio'&&!t.checked)return;
+sp(S,k,t.type==='checkbox'?t.checked:t.value);sv();renderSt();
+if(k.startsWith('p.')||k==='ctx'){const pv=$('#pv');if(pv&&S.man==null)pv.value=assemble(S)}
+if(S.phase===6)fillSch()}
+document.addEventListener('input',onIn);document.addEventListener('change',e=>{if(e.target.id==='fi'){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{$('#ji').value=String(r.result).slice(0,200000);$('#imsg').textContent='File letto: premete “Importa e sostituisci”.'};r.onerror=()=>{$('#imsg').textContent='Impossibile leggere il file.'};r.readAsText(f);return}onIn(e)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#pn').hidden)closeP()});
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+if(b.dataset.go!==undefined){go(+b.dataset.go);return}
+switch(b.dataset.act){
+case'exp':pExp();break;case'imp':pImp();break;case'prt':prt();break;case'close':closeP();break;
+case'clr':ask('Cancellare la sessione?','Verranno cancellati i dati salvati in questo browser e il lavoro corrente. Se vi serve, esportate prima il JSON.',()=>{run=false;try{localStorage.removeItem(KEY)}catch(x){}S=def();savedAt=null;render();msg('Sessione cancellata.')});break;
+case'yes':{const f=pend;closeP();if(f)f();break}
+case'tstart':tstart();break;case'tpause':tpause();break;
+case'treset':ask('Azzerare il timer?','Il timer torna a 55:00. I testi compilati non vengono toccati.',()=>{run=false;S.el=0;save();updT()});break;
+case'dl':dl();break;case'copyj':cp($('#jx'),$('#jx').value);break;case'doimp':doImp();break;
+case'cp':cp($('#pv'),$('#pv').value);break;
+case'regen':S.man=null;save();render();msg('Prompt rigenerato dai campi.');break;
+case'draw':{let n;do{n=crypto.getRandomValues(new Uint32Array(1))[0]%6}while(n===S.aq);S.aq=n;save();render();break}
+case'fillril':{const r=S.rub.filter(x=>x.e==='Rilievo'&&t_(x.o)).map(x=>x.o);S.ril=S.ril.map((v,i)=>t_(v)?v:(r[i]||v));save();render();break}
+}});
+window.addEventListener('pagehide',save);
+load();render();if(!stOK)$('#nost').hidden=false;
+})();
+</script></body></html>
