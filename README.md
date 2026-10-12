@@ -3,7 +3,7 @@
 > **Esercitazione interattiva (55 minuti) su dati e sicurezza nei prompt**, per il percorso formativo "L'intelligenza artificiale nella Pubblica Amministrazione".
 > Sei fasi guidate per imparare a ridurre il contesto, costruire un prompt sicuro, revisionarsi a vicenda e documentare i controlli — su un caso **interamente fittizio**.
 
-🔗 **Demo online:** [Prepara, scambia, verifica/](https://gigicogo.github.io/Scheda-sicurezza-prompt/)
+🔗 **Demo online:** [Prepara, scambia, verifica](https://gigicogo.github.io/Scheda-sicurezza-prompt/)
 
 ---
 
