@@ -1,84 +1,64 @@
-# 🔐 Prepara, scambia, verifica
+# Prepara, scambia, verifica — versione individuale
 
-> **Esercitazione interattiva (55 minuti) su dati e sicurezza nei prompt**, per il percorso formativo "L'intelligenza artificiale nella Pubblica Amministrazione".
-> Sei fasi guidate per imparare a ridurre il contesto, costruire un prompt sicuro, revisionarsi a vicenda e documentare i controlli — su un caso **interamente fittizio**.
+Web app didattica autonoma per il modulo **Dati e sicurezza nei prompt** del percorso di formazione sull'intelligenza artificiale nella Pubblica Amministrazione.
 
-🔗 **Demo online:** [Prepara, scambia, verifica](https://gigicogo.github.io/Scheda-sicurezza-prompt/)
+Questa è la versione per **aula virtuale con partecipanti individuali**, adattata dal laboratorio originario organizzato in gruppi. **Durata prevista: 40 minuti.**
 
----
+## Come funziona
 
-## 📋 Cos'è
+1. Apri `index.html` con un browser recente, o pubblicalo su GitHub Pages.
+2. Premi **Avvia esercitazione individuale**. Il timer è facoltativo: si avvia con **Avvia / riprendi**.
+3. Lavora sul **solo caso fittizio**, senza inserire dati reali.
+4. Nella fase 4 cambia prospettiva: da autore del prompt diventi **revisore del tuo stesso lavoro**. Compila la rubrica e valuta quattro osservazioni di un **revisore simulato**. Alcune sono intenzionalmente fuorvianti. Dopo averle motivate tutte, premi **Confronta le mie decisioni con la guida**.
+5. Correggi il prompt, completa l'audit e scarica la scheda finale usando **Stampa / salva PDF**. Se vuoi conservare una copia modificabile, usa **Esporta lavoro JSON**.
 
-Un singolo file HTML, senza backend né installazioni, che accompagna i partecipanti in un esercizio completo sul principio chiave della privacy by design: **minimizzare ciò che finisce in un prompt**. I gruppi lavorano su un caso fittizio (un utente con consumi anomali, in morosità, con contenzioso aperto), riducono il contesto, costruiscono il prompt, si scambiano il lavoro per una revisione incrociata e preparano una scheda finale documentata.
+**«Scambia» non significa più scambiare file con altri partecipanti: significa scambiare il punto di vista, passando da autore a revisore.**
 
-| Fase | Tempo | Cosa succede |
-| --- | --- | --- |
-| **1 · Triage del caso** | 7′ | Per ogni informazione del caso: serve al compito? Può far riconoscere la persona? Che azione proporre (rimuovi, sostituisci, generalizza, aggrega…) |
-| **2 · Riduzione del contesto** | 10′ | Checklist di minimizzazione (8 voci obbligatorie) e scrittura del contesto ridotto |
-| **3 · Costruzione del prompt** | 10′ | Campi guidati (output, destinatario, fonti, compito, tono, limiti) e anteprima assemblata in tempo reale |
-| **4 · Revisione incrociata** | 10′ | Scambio di lavoro tra gruppi via JSON, rubrica di 8 domande, rilievi prioritari |
-| **5 · Revisione finale e audit** | 13′ | Modifiche, verifiche completate e da completare, **audit a sorpresa** con estrazione casuale di una domanda |
-| **6 · Preparazione restituzione** | 5′ | Tre decisioni di minimizzazione, due rilievi ricevuti, scheda finale generata automaticamente (stampa / PDF) |
+## Le sei fasi
 
-## 🚀 Come si usa
+| Fase | Attività | Durata |
+| --- | --- | ---: |
+| 1 | Triage del caso fittizio | 7 min |
+| 2 | Riduzione del contesto e checklist | 7 min |
+| 3 | Costruzione del prompt | 8 min |
+| 4 | Scambio di prospettiva: autoverifica e revisore simulato | 8 min |
+| 5 | Revisione finale e audit | 7 min |
+| 6 | Restituzione individuale | 3 min |
+| **Totale** | | **40 min** |
 
-1. Scarica `index.html` dal repo (o copialo da una chiavetta).
-2. Aprilo con un doppio clic in qualunque browser moderno: **funziona anche offline**.
-3. Proiettalo per la plenaria, oppure invialo ai piccoli gruppi perché lo usino sul proprio PC.
+Il timer è indicativo; non blocca i campi. Le etichette delle fasi indicano la completezza, **non un voto né una certificazione**.
 
-Per lo scambio tra gruppi non serve alcun server: il gruppo autore usa **"Esporta lavoro JSON"**, il gruppo revisore lo carica con **"Importa lavoro JSON"**, compila la rubrica e lo riesporta. Il timer integrato (55 minuti, con avanzamento per fase) è un supporto organizzativo: non blocca mai i campi.
+## Backup, salvataggio, privacy
 
-## 🔒 Privacy e protezione dei dati
+- L'app non richiede credenziali, non chiama servizi di IA, non usa analisi del traffico e non trasmette i testi a server. Funziona anche offline.
+- Dove disponibile, il lavoro è salvato automaticamente con `localStorage` nel browser e sul dispositivo usato.
+- **Esporta lavoro JSON / Importa lavoro JSON** servono soltanto per il **proprio backup** o per riprendere il proprio lavoro su un altro dispositivo. Non si inviano file tra partecipanti.
+- Per consegnare un riepilogo leggibile, usa **Stampa / salva PDF**.
+- Non inserire dati personali reali, documenti dell'Ente o contenuti riservati. Gli esempi sono interamente fittizi.
+- Le quattro osservazioni del revisore sono **testi didattici statici**, non output di un modello IA.
+- La scheda finale documenta scelte compiute nell'esercitazione: **non certifica** anonimizzazione, autorizzazioni dell'Ente, conformità privacy né correttezza della bozza.
 
-L'app è progettata per l'uso in un ente pubblico, quindi:
+## Pubblicazione su GitHub Pages
 
-- **Nessun dato lascia il dispositivo.** Nessuna richiesta di rete, nessun invio a server o servizi di IA: il prompt costruito non viene mai spedito a un modello.
-- **Caso interamente fittizio.** Un banner ricorda a ogni fase di non inserire dati personali reali, dati riservati o documenti dell'Ente.
-- **Niente nominativi.** Il nome del gruppo è facoltativo e il campo lo dice esplicitamente.
-- **Salvataggio solo locale** (localStorage del browser), con esportazione/importazione JSON validata campo per campo.
-- **Scheda finale consapevole:** dichiara esplicitamente che l'elaborato documenta il lavoro svolto, ma non certifica l'anonimato, l'autorizzazione dello strumento o la conformità del prompt alle procedure dell'Ente.
+Per aggiornare il repository esistente `gigicogo/Scheda-sicurezza-prompt`:
 
-## 🛠️ Struttura del repository
+1. Conserva una copia del vecchio `index.html` **fuori dalla cartella pubblicata**, o su un branch di backup.
+2. Sostituisci nella root del repository l'`index.html` con il nuovo file.
+3. Sostituisci o aggiorna `README.md`.
+4. Se non è già attivo, abilita **Settings → Pages → Deploy from a branch → main → /(root)**.
+5. Apri il link GitHub Pages del repository e controlla la versione visualizzata. In caso di cache, prova una finestra privata o un aggiornamento forzato.
 
-```text
-├── index.html    # l'esercitazione completa (HTML + CSS + JS inline, zero dipendenze)
-├── README.md     # questo file
-```
+Nessun build step, server, pacchetto npm o servizio esterno necessario.
 
-Non serve build, npm, né alcuno strumento: solo un browser. Funziona su desktop, tablet e smartphone, con supporto a **dark mode** automatico, area sicura (notch) e stampa.
+## Che cosa cambia rispetto alla versione originaria
 
+- Timer e regia **da 55 a 40 minuti**.
+- Nessuna formazione di gruppi o importazione di elaborati altrui.
+- Fase 4: rubrica di 8 controlli **mantenuta**; aggiunti 4 pareri predefiniti, scelta motivata e guida di confronto.
+- Restituzione e PDF adattati al singolo partecipante.
+- Backup JSON identificato come **formato individuale v2**, distinto da quello originario.
+- Grafica, navigazione, salvataggio locale, prompt modificabile e audit a sorpresa mantenuti.
 
-## 📐 Come è costruita l'esercitazione
+### Riservatezza delle soluzioni
 
-L'app segue i contenuti del percorso sull'IA nella PA:
-
-- **minimizzazione dei dati**: meno dati nel prompt, meno rischio (il filo conduttore di tutte le fasi);
-- il messaggio chiave della giornata sulla privacy: **la pseudonimizzazione non è anonimizzazione** — un segnaposto come `[UTENTE_A]` non rende il caso anonimo se restano combinazioni identificative;
-- la costruzione del prompt con **istruzioni di salvaguardia** (bozza, solo fonti fornite, niente invenzioni, revisione umana);
-- la **revisione tra pari** e la **tracciabilità** come buone pratiche, prima che come obblighi.
-
-## ✏️ Personalizzazione
-
-Tutto il contenuto è in chiaro dentro `index.html`:
-
-- **il caso fittizio e la finalità**: costanti `CASO`, `FIN` ed elenco `EL` (le informazioni da sottoporre a triage);
-- **checklist e rubrica**: costanti `CHK` e `RUB`;
-- **domande dell'audit**: costante `AUD` (l'estrazione evita automaticamente la ripetizione della stessa domanda);
-- **tempi delle fasi**: costante `PH` (i minuti per fase; il totale si ricalcola automaticamente).
-
-Se adatti l'esercizio al tuo ente, mantieni la regola d'ingaggio: solo casi fittizi, mai dati reali.
-
-## 📄 Licenza
-
-Aperta. E' possibile usare il file, cambiarlo, ottimizzarlo, correggerlo e usarlo in piena libertà senza obbligo di citare l'autore.
-
-## 👤 Autore e contesto
-
-**Gianluigi Cogo** — consulente e docente sui temi dell'IA generativa nella Pubblica Amministrazione.
-
-L'app nasce come esercitazione del percorso operativo *"L'IA nella Pubblica Amministrazione — Percorso operativo per l'uso consapevole, sicuro e governato dell'IA generativa"* (20 ore: percorso base per funzionari ed esecutori + modulo governance per direttori e dirigenti), in particolare per le giornate su sicurezza/privacy e buone pratiche.
-
-- 📮 Newsletter: [gigicogo.substack.com](https://gigicogo.substack.com)
-- 📝 Blog: [medium.com/webeconoscenza](https://medium.com/webeconoscenza)
-- ▶️ YouTube: [youtube.com/@gigicogo](https://www.youtube.com/@gigicogo)
-- 💼 LinkedIn: [linkedin.com/in/gigicogo](https://it.linkedin.com/in/gigicogo)
+La guida del formatore è distribuita separatamente come `GUIDA_FORMATORE.md`: **non va caricata nel repository pubblico**.
