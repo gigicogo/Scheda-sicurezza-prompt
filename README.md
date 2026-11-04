@@ -62,3 +62,18 @@ Nessun build step, server, pacchetto npm o servizio esterno necessario.
 ### Riservatezza delle soluzioni
 
 La guida del formatore è distribuita separatamente come `GUIDA_FORMATORE.md`: **non va caricata nel repository pubblico**.
+
+## 📄 Licenza
+
+Da definire: si suggerisce una licenza aperta (es. MIT o CC BY 4.0) per favorire il riuso da parte di altri formatori o altri enti. Sostituisci questo paragrafo con il testo della licenza scelta e il file `LICENSE` del repo.
+
+## 👤 Autore e contesto
+
+**Gianluigi Cogo** Content creator e technical writer interessato ad AI generativa, automazioni, viaggi e strumenti digitali. Consulente e docente sui temi dell'IA generativa nella Pubblica Amministrazione.
+
+L'app nasce come esercitazione nel percorso operativo *"L'IA nella Pubblica Amministrazione — Percorso operativo per l'uso consapevole, sicuro e governato dell'IA generativa"* (20 ore: percorso base per funzionari ed esecutori + modulo governance per direttori e dirigenti). Per info sul corso contattatemi usando i social qui sotto.
+
+- 📮 Newsletter: [gigicogo.substack.com](https://gigicogo.substack.com)
+- 📝 Blog: [medium.com/webeconoscenza](https://medium.com/webeconoscenza)
+- ▶️ YouTube: [youtube.com/@gigicogo](https://www.youtube.com/@gigicogo)
+- 💼 LinkedIn: [linkedin.com/in/gigicogo](https://it.linkedin.com/in/gigicogo)
