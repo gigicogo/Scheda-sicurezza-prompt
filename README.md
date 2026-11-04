@@ -47,14 +47,6 @@ L'app è progettata per l'uso in un ente pubblico, quindi:
 
 Non serve build, npm, né alcuno strumento: solo un browser. Funziona su desktop, tablet e smartphone, con supporto a **dark mode** automatico, area sicura (notch) e stampa.
 
-## 🌐 Pubblicazione gratuita (GitHub Pages)
-
-1. Crea il repository e carica `index.html`.
-2. Vai su **Settings → Pages**.
-3. Sotto *Build and deployment*, seleziona il branch (`main`) e la cartella (`/root`), poi **Save**.
-4. Dopo qualche minuto l'esercizio sarà online su `https://<tuo-username>.github.io/<repo>/`.
-
-Netlify (free) è un'alternativa valida: trascina il file e ottieni un link immediato.
 
 ## 📐 Come è costruita l'esercitazione
 
